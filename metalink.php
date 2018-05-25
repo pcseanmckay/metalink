@@ -5,11 +5,21 @@ $arch = $_GET["arch"];
 
 #echo "Repository: $repo with arch: $arch\n\n";
 
-#https://mirrors.fedoraproject.org/metalink?repo=fedora-28&arch=x86_64
-#https://fedora.mirror.constant.com/fedora/linux/releases/28/Everything/x86_64/os/repodata/repomd.xml
+# Here we open the paths file and read it into an associative array
 
-#https://mirrors.fedoraproject.org/metalink?repo=updates-released-f28&arch=x86_64
-#https://download-ib01.fedoraproject.org/pub/fedora/linux/updates/28/Everything/x86_64/repodata/repomd.xml
+$myfile = fopen("path.txt", "r") or die("Unable to open file!");
+# Read each line from the file and add to an associative array
+
+#$paths = array();
+
+while(!feof($myfile)) {
+  $line = fgets($myfile);
+  $line_array = explode(",", $line);
+  #$key = $line_array[0] . "|" .$line_array[1];
+  #$value = $line_array[2];
+  #array_push($paths, $key=>$value);
+}
+fclose($myfile);
 
 if (strncmp($repo, "fedora-", 7) == 0) {
     $url = explode("-", $repo);
