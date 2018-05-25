@@ -1,0 +1,13 @@
+fedora-23,x86_64,/fedora/releases/23/Everything/x86_64/os/repodata/repomd.xml
+updates-released-f23,x86_64,/fedora/updates/23/x86_64/repodata/repomd.xml
+fedora-24,x86_64,/fedora/releases/24/Everything/x86_64/os/repodata/repomd.xml
+updates-released-f24,x86_64,/fedora/updates/24/x86_64/repodata/repomd.xml
+fedora-25,x86_64,/fedora/releases/25/Everything/x86_64/os/repodata/repomd.xml
+updates-released-f25,x86_64,/fedora/updates/25/x86_64/repodata/repomd.xml
+fedora-26,x86_64,/fedora/releases/26/Everything/x86_64/os/repodata/repomd.xml
+updates-released-f26,x86_64,/fedora/updates/26/x86_64/repodata/repomd.xml
+fedora-27,x86_64,/fedora/releases/27/Everything/x86_64/os/repodata/repomd.xml
+updates-released-f27,x86_64,/fedora/updates/27/x86_64/repodata/repomd.xml
+fedora-28,x86_64,/fedora/releases/28/Everything/x86_64/os/repodata/repomd.xml
+updates-released-f28,x86_64,/fedora/updates/28/Everything/x86_64/repodata/repomd.xml
+epel-7,x86_64,/epel/7/x86_64/repodata/repomd.xml
