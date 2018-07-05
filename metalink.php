@@ -9,6 +9,10 @@ $arch = $_GET["arch"];
 
 $myfile = fopen("path.txt", "r") or die("Unable to open file!");
 # Read each line from the file and add to an associative array
+# Line is in the following format: <repo>,<architecture>,<URL path to repomd.xml beyond domain name>
+# Example line for fedora 28 base repository:  fedora-28,x86_64,/fedora/releases/28/Everything/x86_64/os/repodata/repomd.xml
+# Example line for fedora 28 updates repository: updates-released-f28,x86_64,/fedora/updates/28/Everything/x86_64/repodata/repomd.xml 
+# Example line for EPEL 7 base repository: epel-7,x86_64,/epel/7/x86_64/repodata/repomd.xml
 
 #$paths = array();
 
