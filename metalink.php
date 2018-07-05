@@ -32,11 +32,24 @@ while(!feof($myfile)) {
   $mymirror = "http://mirror.rackspace.com";
   
   if ($myrepo == $repo and $myarch == $arch) {
-    echo '<metalink version="3.0" type="dynamic" pubdate="Tue, 22 May 2018 15:28:39 GMT" generator="mirrormanager">
+    if ($mylocalpath != "") {
+      # Get size of the repomd.xml file.
+      $repomd_filesize = filesize($mylocalpath);
+
+      # Get the 'timestamp' of the file by reading the <revision></revision> xml data from the repomd.xml file.
+      $myxml = simplexml_load_file($mylocalpath) or die("Error: Cannot create xml object");
+      $repomd_timestamp = $myxml->revision;
+
+      # Create timestamp xml element and size xml element as strings
+      $xml_filesize = '<size>' . $repomd_filesize . '</size>';
+      $xml_timestamp = '<mm0:timestamp>' . $repomd_timestamp . '</mm0:timestamp>';
+    }
+    echo '<?xml version="1.0" encoding="utf-8"?>
+    <metalink version="3.0" type="dynamic" pubdate="Tue, 22 May 2018 15:28:39 GMT" generator="mirrormanager">
     <files>
         <file name="repomd.xml">'
-            #<mm0:timestamp>1509861107</mm0:timestamp>
-            #<size>3926</size>
+            . $xml_timestamp
+            . $xml_filesize
              . '<resources maxconnections="1">
                 <url protocol="http" type="http" location="US" preference="100">' . $mymirror . '/' . $mypath . '</url>
             </resources>
