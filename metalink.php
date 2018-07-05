@@ -25,7 +25,12 @@ while(!feof($myfile)) {
   $myrepo = $line_array[0];
   $myarch = $line_array[1];
   $mypath = $line_array[2];
+  if ($line_array[3] != "") {
+    $mylocalpath = $line_array[3];
+  }
 
+  $mymirror = "http://mirror.rackspace.com";
+  
   if ($myrepo == $repo and $myarch == $arch) {
     echo '<metalink version="3.0" type="dynamic" pubdate="Tue, 22 May 2018 15:28:39 GMT" generator="mirrormanager">
     <files>
@@ -33,7 +38,7 @@ while(!feof($myfile)) {
             #<mm0:timestamp>1509861107</mm0:timestamp>
             #<size>3926</size>
              . '<resources maxconnections="1">
-                <url protocol="http" type="http" location="US" preference="100">http://mirror.rackspace.com' . '/' . $mypath . '</url>
+                <url protocol="http" type="http" location="US" preference="100">' . $mymirror . '/' . $mypath . '</url>
             </resources>
         </file>
     </files>
