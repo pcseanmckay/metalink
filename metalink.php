@@ -22,11 +22,11 @@ while(!feof($myfile)) {
   #$key = $line_array[0] . "|" .$line_array[1];
   #$value = $line_array[2];
   #array_push($paths, $key=>$value);
-  $myrepo = $line_array[0];
-  $myarch = $line_array[1];
-  $mypath = $line_array[2];
-  if ($line_array[3] != "") {
-    $mylocalpath = $line_array[3];
+  $myrepo = chop($line_array[0]);
+  $myarch = chop($line_array[1]);
+  $mypath = chop($line_array[2]);
+  if (count($line_array) == 4) {
+    $mylocalpath = chop($line_array[3]);
   }
 
   $mymirror = "http://mirror.rackspace.com";
@@ -35,10 +35,13 @@ while(!feof($myfile)) {
     if ($mylocalpath != "") {
       # Get size of the repomd.xml file.
       $repomd_filesize = filesize($mylocalpath);
-
+echo "Local file: " . $mylocalpath;
+echo "Size of path: " . strlen($mylocalpath) . "\n";
+echo "File size: " . $repomd_filesize . "\n";
       # Get the 'timestamp' of the file by reading the <revision></revision> xml data from the repomd.xml file.
-      $myxml = simplexml_load_file($mylocalpath) or die("Error: Cannot create xml object");
-      $repomd_timestamp = $myxml->revision;
+      #$myxml = simplexml_load_file($mylocalpath) or die("Error: Cannot create xml object");
+      #$repomd_timestamp = $myxml->revision;
+echo "File revision: " . $repomd_timestamp . "\n";
 
       # Create timestamp xml element and size xml element as strings
       $xml_filesize = '<size>' . $repomd_filesize . '</size>';
