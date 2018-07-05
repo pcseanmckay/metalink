@@ -8,6 +8,6 @@ fedora-26,x86_64,fedora/releases/26/Everything/x86_64/os/repodata/repomd.xml
 updates-released-f26,x86_64,fedora/updates/26/x86_64/repodata/repomd.xml
 fedora-27,x86_64,fedora/releases/27/Everything/x86_64/os/repodata/repomd.xml
 updates-released-f27,x86_64,fedora/updates/27/x86_64/repodata/repomd.xml
-fedora-28,x86_64,fedora/releases/28/Everything/x86_64/os/repodata/repomd.xml
-updates-released-f28,x86_64,fedora/updates/28/Everything/x86_64/repodata/repomd.xml
-epel-7,x86_64,epel/7/x86_64/repodata/repomd.xml
+fedora-28,x86_64,fedora/releases/28/Everything/x86_64/os/repodata/repomd.xml,/var/www/html/metalink/f-28-repomd.xml
+updates-released-f28,x86_64,fedora/updates/28/Everything/x86_64/repodata/repomd.xml,/var/www/html/metalink/f-28-updates-repomd.xml
+epel-7,x86_64,epel/7/x86_64/repodata/repomd.xml,/var/www/html/metalink/e-7-repomd.xml
