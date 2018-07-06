@@ -50,9 +50,9 @@ while(!feof($myfile)) {
     echo '<?xml version="1.0" encoding="utf-8"?>
     <metalink version="3.0" type="dynamic" pubdate="Tue, 22 May 2018 15:28:39 GMT" generator="mirrormanager">
     <files>
-        <file name="repomd.xml">'
-            . $xml_timestamp
-            . $xml_filesize
+        <file name="repomd.xml">' . "\n"
+            . $xml_timestamp . "\n"
+            . $xml_filesize . "\n"
              . '<resources maxconnections="1">
                 <url protocol="http" type="http" location="US" preference="100">' . $mymirror . '/' . $mypath . '</url>
             </resources>
