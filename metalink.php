@@ -46,12 +46,19 @@ while(!feof($myfile)) {
       # Create timestamp xml element and size xml element as strings
       $xml_filesize = '<size>' . $repomd_filesize . '</size>';
       $xml_timestamp = '<mm0:timestamp>' . $repomd_timestamp . '</mm0:timestamp>';
+      $repomd_md5_hash = hash_file('md5', $mylocalpath);
+      $repomd_sha1_hash = hash_file('sha1', $mylocalpath);
+      $repomd_sha256_hash = hash_file('sha256', $mylocalpath);
+      $xml_verification = '<verification><hash type="md5">' . $repomd_md5_hash . '</hash>';
+      $xml_verification .= '<hash type="sha1">' . $repomd_sha1_hash . '</hash>';
+      $xml_verification .= '<hash type="sha256">' . $repomd_sha256_hash . '</hash>';
+      $xml_verification .= '</verification>';
     }
     
     $outxml = '<?xml version="1.0" encoding="utf-8"?>
     <metalink version="3.0" type="dynamic" pubdate="Tue, 22 May 2018 15:28:39 GMT" generator="mirrormanager">
     <files>
-        <file name="repomd.xml">' . $xml_timestamp . $xml_filesize
+        <file name="repomd.xml">' . $xml_timestamp . $xml_filesize . $xml_verification
              . '<resources maxconnections="1">
                 <url protocol="http" type="http" location="US" preference="100">' . $mymirror . '/' . $mypath . '</url>
             </resources>
