@@ -47,18 +47,19 @@ while(!feof($myfile)) {
       $xml_filesize = '<size>' . $repomd_filesize . '</size>';
       $xml_timestamp = '<mm0:timestamp>' . $repomd_timestamp . '</mm0:timestamp>';
     }
-    echo '<?xml version="1.0" encoding="utf-8"?>
+    
+    $outxml = '<?xml version="1.0" encoding="utf-8"?>
     <metalink version="3.0" type="dynamic" pubdate="Tue, 22 May 2018 15:28:39 GMT" generator="mirrormanager">
     <files>
-        <file name="repomd.xml">
-            ' . $xml_timestamp . "\n"
-            . $xml_filesize . "\n"
+        <file name="repomd.xml">' . $xml_timestamp . $xml_filesize
              . '<resources maxconnections="1">
                 <url protocol="http" type="http" location="US" preference="100">' . $mymirror . '/' . $mypath . '</url>
             </resources>
         </file>
     </files>
 </metalink>';
+    $myoutxml = simplexml_load_string($outxml);
+    echo $myoutxml->asXML();
   break;
   }
 }
