@@ -35,13 +35,13 @@ while(!feof($myfile)) {
     if ($mylocalpath != "") {
       # Get size of the repomd.xml file.
       $repomd_filesize = filesize($mylocalpath);
-echo "Local file: " . $mylocalpath;
-echo "Size of path: " . strlen($mylocalpath) . "\n";
-echo "File size: " . $repomd_filesize . "\n";
+#echo "Local file: " . $mylocalpath;
+#echo "Size of path: " . strlen($mylocalpath) . "\n";
+#echo "File size: " . $repomd_filesize . "\n";
       # Get the 'timestamp' of the file by reading the <revision></revision> xml data from the repomd.xml file.
-      #$myxml = simplexml_load_file($mylocalpath) or die("Error: Cannot create xml object");
-      #$repomd_timestamp = $myxml->revision;
-echo "File revision: " . $repomd_timestamp . "\n";
+      $myxml = simplexml_load_file($mylocalpath) or die("Error: Cannot create xml object");
+      $repomd_timestamp = $myxml->revision;
+#echo "File revision: " . $repomd_timestamp . "\n";
 
       # Create timestamp xml element and size xml element as strings
       $xml_filesize = '<size>' . $repomd_filesize . '</size>';
