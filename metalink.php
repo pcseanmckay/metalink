@@ -56,7 +56,7 @@ while(!feof($myfile)) {
     }
     
     $outxml = '<?xml version="1.0" encoding="utf-8"?>
-    <metalink version="3.0" type="dynamic" pubdate="Tue, 22 May 2018 15:28:39 GMT" generator="mirrormanager">
+    <metalink version="3.0" xmlns="http://www.metalinker.org/" type="dynamic" pubdate="Fri, 06 Jul 2018 04:42:15 GMT" generator="mirrormanager" xmlns:mm0="http://fedorahosted.org/mirrormanager">
     <files>
         <file name="repomd.xml">' . $xml_timestamp . $xml_filesize . $xml_verification
              . '<resources maxconnections="1">
